@@ -1,4 +1,5 @@
 package Entities;
+
 /*
  * @autor
  * Marcos Henrique O. G. da Silva
@@ -50,7 +51,7 @@ public class AlistamentoMilitar {
 	}
 
 	public int informarAnoNascimento() {
-		String anoNascimento = JOptionPane.showInputDialog(null,"Informe o ano de nacimento");
+		String anoNascimento = JOptionPane.showInputDialog(null, "Informe o ano de nacimento");
 		int ano = Integer.parseInt(anoNascimento);
 		int anoAtula = Year.now().getValue();
 		int idade = anoAtula - ano;
@@ -129,13 +130,13 @@ public class AlistamentoMilitar {
 	public String toString() {
 		double multa = calcularMulta();
 		if (multa > 0) {
-			return "Nome: " + getDadosPessoa1()[0] + "\n" + "Ano de nascimento: " + getDadosPessoa1()[1] + "\n"
+			return "\nNome: " + getDadosPessoa1()[0] + "\n" + "Ano de nascimento: " + getDadosPessoa1()[1] + "\n"
 					+ "Nome da mãe: " + getDadosPessoa1()[2] + "\n" + "Nome do pai: " + getDadosPessoa1()[3] + "\n"
 					+ "Telefone: " + formatacaoTelefone(getDadosPessoa1()[4]) + "\n" + "E-mail: " + getDadosPessoa1()[5]
 					+ "\n" + "Altura: " + getDadosPessoa1()[6] + "m\n" + "Peso: " + getDadosPessoa1()[7] + "Kg\n"
 					+ "Multa: R$ " + getDadosPessoa1()[8] + "\n";
 		} else {
-			return "Nome: " + getDadosPessoa1()[0] + "\n" + "Ano de nascimento: " + getDadosPessoa1()[1] + "\n"
+			return "\nNome: " + getDadosPessoa1()[0] + "\n" + "Ano de nascimento: " + getDadosPessoa1()[1] + "\n"
 					+ "Nome da mãe: " + getDadosPessoa1()[2] + "\n" + "Nome do pai: " + getDadosPessoa1()[3] + "\n"
 					+ "Telefone: " + formatacaoTelefone(getDadosPessoa1()[4]) + "\n" + "E-mail: " + getDadosPessoa1()[5]
 					+ "\n" + "Altura: " + getDadosPessoa1()[6] + "m\n" + "Peso: " + getDadosPessoa1()[7] + "Kg";
