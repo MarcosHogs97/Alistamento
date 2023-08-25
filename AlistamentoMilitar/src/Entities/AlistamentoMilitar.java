@@ -1,5 +1,9 @@
 package Entities;
-
+/*
+ * @autor
+ * Marcos Henrique O. G. da Silva
+ * GitHub//https://github.com/MarcosHogs97/Alistamento.git
+ * **/
 import javax.swing.JOptionPane;
 import java.time.Year;
 
