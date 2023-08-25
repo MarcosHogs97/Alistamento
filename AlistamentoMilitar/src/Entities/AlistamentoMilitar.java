@@ -1,6 +1,7 @@
 package Entities;
 
 import javax.swing.JOptionPane;
+import java.time.Year;
 
 public class AlistamentoMilitar {
 	private String dadosPessoa1[] = new String[9];
@@ -22,11 +23,8 @@ public class AlistamentoMilitar {
 	}
 
 	public void cadastrarRecruta() {
-		String anoNacimento = JOptionPane.showInputDialog("Informe o ano de nacimento");
-		int ano = Integer.parseInt(anoNacimento);
-		int idade = 2023 - ano;
-		if (idade >= 18 && idade < 45) {
-			anoNacimento(anoNacimento);
+		int idade = informarAnoNascimento();
+		if (idade >= 18 && idade < 45) {		
 			String nome = JOptionPane.showInputDialog("Informe o nome");
 			nome(nome);
 			double peso = Double.parseDouble(JOptionPane.showInputDialog("Informe o peso"));
@@ -39,21 +37,50 @@ public class AlistamentoMilitar {
 			nomePai(nomePai);
 			String email = JOptionPane.showInputDialog("Informe o email para contato");
 			email(email);
-			String telefone = JOptionPane.showInputDialog("Informe o telefone para contato");
-			telefone(telefone);
+			inputTelefone();
 			double multa = calcularMulta();
 			if (multa > 0) {
 				multa(String.format("%.2f", multa));
 			}
-
-		} else if (idade > 45) {
-			JOptionPane.showMessageDialog(null, "Idade maxima para o alistamento é de 45 anos!!");
-		} else {
-			JOptionPane.showMessageDialog(null, "Idade minima para o alistamento é de 18 anos!!");
 		}
+	}
+	
+	public int informarAnoNascimento() {
+		String anoNascimento = JOptionPane.showInputDialog("Informe o ano de nacimento");
+		int ano = Integer.parseInt(anoNascimento);
+		int anoAtula = Year.now().getValue();
+		int idade = anoAtula - ano;
+		if (anoNascimento.length() != 4 || idade < 18 || idade > 45) {		
+			JOptionPane.showMessageDialog(null, "Dados inválidos, O recruta deve ter entre 18 a 45 anos");
+			informarAnoNascimento();
+		}else {
+			anoNacimento(anoNascimento);
+		}
+	
+		return idade;
 
 	}
-
+	public void inputTelefone() {
+		String telefone = JOptionPane.showInputDialog("Informe o telefone para contato");
+		if (telefone.length() != 11) {
+			JOptionPane.showMessageDialog(null,"O número de telefone deve ter 11 dígitos seguindo o padrao (xx) x xxxx-xxxx.");
+			inputTelefone();
+        }else {
+        	telefone(telefone);
+        }       	
+	
+	}
+	
+	public String formatacaoTelefone(String telefone) {
+		String numeroFormatado = null;
+			numeroFormatado = String.format("(%s) %s %s-%s", 
+					telefone.substring(0,2),
+					telefone.substring(2,3),
+					telefone.substring(3,7),
+					telefone.substring(7));	
+		return numeroFormatado;
+	}
+	
 	public double calcularMulta() {
 		int idade = 2023 - Integer.parseInt(getDadosPessoa1()[1]);
 		double multa = (idade - 19) * 5;
@@ -101,13 +128,13 @@ public class AlistamentoMilitar {
 		if (multa > 0) {
 			return "Nome: " + getDadosPessoa1()[0] + "\n" + "Ano de nascimento: " + getDadosPessoa1()[1] + "\n"
 					+ "Nome da mãe: " + getDadosPessoa1()[2] + "\n" + "Nome do pai: " + getDadosPessoa1()[3] + "\n"
-					+ "Telefone: " + getDadosPessoa1()[4] + "\n" + "E-mail: " + getDadosPessoa1()[5] + "\n" + "Altura: "
+					+ "Telefone: " + formatacaoTelefone(getDadosPessoa1()[4]) + "\n" + "E-mail: " + getDadosPessoa1()[5] + "\n" + "Altura: "
 					+ getDadosPessoa1()[6] + "m\n" + "Peso: " + getDadosPessoa1()[7] + "Kg\n" + "Multa: R$ "
 					+ getDadosPessoa1()[8] + "\n";
 		} else {
 			return "Nome: " + getDadosPessoa1()[0] + "\n" + "Ano de nascimento: " + getDadosPessoa1()[1] + "\n"
 					+ "Nome da mãe: " + getDadosPessoa1()[2] + "\n" + "Nome do pai: " + getDadosPessoa1()[3] + "\n"
-					+ "Telefone: " + getDadosPessoa1()[4] + "\n" + "E-mail: " + getDadosPessoa1()[5] + "\n" + "Altura: "
+					+ "Telefone: " + formatacaoTelefone(getDadosPessoa1()[4]) + "\n" + "E-mail: " + getDadosPessoa1()[5] + "\n" + "Altura: "
 					+ getDadosPessoa1()[6] + "m\n" + "Peso: " + getDadosPessoa1()[7] + "Kg";
 		}
 
