@@ -24,7 +24,7 @@ public class AlistamentoMilitar {
 
 	public void cadastrarRecruta() {
 		int idade = informarAnoNascimento();
-		if (idade >= 18 && idade < 45) {		
+		if (idade >= 18 && idade < 45) {
 			String nome = JOptionPane.showInputDialog("Informe o nome");
 			nome(nome);
 			double peso = Double.parseDouble(JOptionPane.showInputDialog("Informe o peso"));
@@ -44,43 +44,42 @@ public class AlistamentoMilitar {
 			}
 		}
 	}
-	
+
 	public int informarAnoNascimento() {
-		String anoNascimento = JOptionPane.showInputDialog("Informe o ano de nacimento");
+		String anoNascimento = JOptionPane.showInputDialog(null,"Informe o ano de nacimento");
 		int ano = Integer.parseInt(anoNascimento);
 		int anoAtula = Year.now().getValue();
 		int idade = anoAtula - ano;
-		if (anoNascimento.length() != 4 || idade < 18 || idade > 45) {		
+		if (anoNascimento.length() != 4 || idade < 18 || idade > 45) {
 			JOptionPane.showMessageDialog(null, "Dados inválidos, O recruta deve ter entre 18 a 45 anos");
 			informarAnoNascimento();
-		}else {
+		} else {
 			anoNacimento(anoNascimento);
 		}
-	
+
 		return idade;
 
 	}
+
 	public void inputTelefone() {
 		String telefone = JOptionPane.showInputDialog("Informe o telefone para contato");
 		if (telefone.length() != 11) {
-			JOptionPane.showMessageDialog(null,"O número de telefone deve ter 11 dígitos seguindo o padrao (xx) x xxxx-xxxx.");
+			JOptionPane.showMessageDialog(null,
+					"O número de telefone deve ter 11 dígitos seguindo o padrao (xx) x xxxx-xxxx.");
 			inputTelefone();
-        }else {
-        	telefone(telefone);
-        }       	
-	
+		} else {
+			telefone(telefone);
+		}
+
 	}
-	
+
 	public String formatacaoTelefone(String telefone) {
 		String numeroFormatado = null;
-			numeroFormatado = String.format("(%s) %s %s-%s", 
-					telefone.substring(0,2),
-					telefone.substring(2,3),
-					telefone.substring(3,7),
-					telefone.substring(7));	
+		numeroFormatado = String.format("(%s) %s %s-%s", telefone.substring(0, 2), telefone.substring(2, 3),
+				telefone.substring(3, 7), telefone.substring(7));
 		return numeroFormatado;
 	}
-	
+
 	public double calcularMulta() {
 		int idade = 2023 - Integer.parseInt(getDadosPessoa1()[1]);
 		double multa = (idade - 19) * 5;
@@ -128,14 +127,14 @@ public class AlistamentoMilitar {
 		if (multa > 0) {
 			return "Nome: " + getDadosPessoa1()[0] + "\n" + "Ano de nascimento: " + getDadosPessoa1()[1] + "\n"
 					+ "Nome da mãe: " + getDadosPessoa1()[2] + "\n" + "Nome do pai: " + getDadosPessoa1()[3] + "\n"
-					+ "Telefone: " + formatacaoTelefone(getDadosPessoa1()[4]) + "\n" + "E-mail: " + getDadosPessoa1()[5] + "\n" + "Altura: "
-					+ getDadosPessoa1()[6] + "m\n" + "Peso: " + getDadosPessoa1()[7] + "Kg\n" + "Multa: R$ "
-					+ getDadosPessoa1()[8] + "\n";
+					+ "Telefone: " + formatacaoTelefone(getDadosPessoa1()[4]) + "\n" + "E-mail: " + getDadosPessoa1()[5]
+					+ "\n" + "Altura: " + getDadosPessoa1()[6] + "m\n" + "Peso: " + getDadosPessoa1()[7] + "Kg\n"
+					+ "Multa: R$ " + getDadosPessoa1()[8] + "\n";
 		} else {
 			return "Nome: " + getDadosPessoa1()[0] + "\n" + "Ano de nascimento: " + getDadosPessoa1()[1] + "\n"
 					+ "Nome da mãe: " + getDadosPessoa1()[2] + "\n" + "Nome do pai: " + getDadosPessoa1()[3] + "\n"
-					+ "Telefone: " + formatacaoTelefone(getDadosPessoa1()[4]) + "\n" + "E-mail: " + getDadosPessoa1()[5] + "\n" + "Altura: "
-					+ getDadosPessoa1()[6] + "m\n" + "Peso: " + getDadosPessoa1()[7] + "Kg";
+					+ "Telefone: " + formatacaoTelefone(getDadosPessoa1()[4]) + "\n" + "E-mail: " + getDadosPessoa1()[5]
+					+ "\n" + "Altura: " + getDadosPessoa1()[6] + "m\n" + "Peso: " + getDadosPessoa1()[7] + "Kg";
 		}
 
 	}
