@@ -27,12 +27,12 @@ public class AlistamentoMilitar {
 		int idade = 2023 - ano;
 		if (idade >= 18 && idade < 45) {
 			anoNacimento(anoNacimento);
-			String peso = JOptionPane.showInputDialog("Informe o peso");
-			peso(peso);
-			String altura = JOptionPane.showInputDialog("Informe o altura");
-			altura(altura);
 			String nome = JOptionPane.showInputDialog("Informe o nome");
 			nome(nome);
+			double peso = Double.parseDouble(JOptionPane.showInputDialog("Informe o peso"));
+			peso(String.format("%.3f", peso));
+			double altura = Double.parseDouble(JOptionPane.showInputDialog("Informe o altura"));
+			altura(String.format("%.2f", altura));
 			String nomeMae = JOptionPane.showInputDialog("Informe o nome da mae");
 			nomeMae(nomeMae);
 			String nomePai = JOptionPane.showInputDialog("Informe o nome do pai");
@@ -43,8 +43,7 @@ public class AlistamentoMilitar {
 			telefone(telefone);
 			double multa = calcularMulta();
 			if (multa > 0) {
-				String stringMulta = String.format("%.2f", multa);
-				multa(stringMulta);
+				multa(String.format("%.2f", multa));
 			}
 
 		} else if (idade > 45) {
@@ -103,13 +102,13 @@ public class AlistamentoMilitar {
 			return "Nome: " + getDadosPessoa1()[0] + "\n" + "Ano de nascimento: " + getDadosPessoa1()[1] + "\n"
 					+ "Nome da mãe: " + getDadosPessoa1()[2] + "\n" + "Nome do pai: " + getDadosPessoa1()[3] + "\n"
 					+ "Telefone: " + getDadosPessoa1()[4] + "\n" + "E-mail: " + getDadosPessoa1()[5] + "\n" + "Altura: "
-					+ getDadosPessoa1()[6] + "\n" + "Peso: " + getDadosPessoa1()[7] + "\n" + "Multa: "
+					+ getDadosPessoa1()[6] + "m\n" + "Peso: " + getDadosPessoa1()[7] + "Kg\n" + "Multa: R$ "
 					+ getDadosPessoa1()[8] + "\n";
 		} else {
 			return "Nome: " + getDadosPessoa1()[0] + "\n" + "Ano de nascimento: " + getDadosPessoa1()[1] + "\n"
 					+ "Nome da mãe: " + getDadosPessoa1()[2] + "\n" + "Nome do pai: " + getDadosPessoa1()[3] + "\n"
 					+ "Telefone: " + getDadosPessoa1()[4] + "\n" + "E-mail: " + getDadosPessoa1()[5] + "\n" + "Altura: "
-					+ getDadosPessoa1()[6] + "\n" + "Peso: " + getDadosPessoa1()[7];
+					+ getDadosPessoa1()[6] + "m\n" + "Peso: " + getDadosPessoa1()[7] + "Kg";
 		}
 
 	}
