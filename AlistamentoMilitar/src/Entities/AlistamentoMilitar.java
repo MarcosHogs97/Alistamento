@@ -27,6 +27,46 @@ public class AlistamentoMilitar {
 		return dadosPessoa1;
 	}
 
+	private void setDadosPessoa1(int index, String dados) {
+		this.dadosPessoa1[index] = dados;
+	}
+
+	public void multa(String multa) {
+		setDadosPessoa1(8, multa);
+	}
+
+	public void nome(String nome) {
+		setDadosPessoa1(0, nome);
+	}
+
+	public void anoNacimento(String anoNacimento) {
+		setDadosPessoa1(1, anoNacimento);
+	}
+
+	public void nomeMae(String nomeMae) {
+		setDadosPessoa1(2, nomeMae);
+	}
+
+	public void nomePai(String nomePai) {
+		setDadosPessoa1(3, nomePai);
+	}
+
+	public void telefone(String telefone) {
+		setDadosPessoa1(4, telefone);
+	}
+
+	public void email(String email) {
+		setDadosPessoa1(5, email);
+	}
+
+	public void altura(String altura) {
+		setDadosPessoa1(6, altura);
+	}
+
+	public void peso(String peso) {
+		setDadosPessoa1(7, peso);
+	}
+
 	public void cadastrarRecruta() {
 		int idade = informarAnoNascimento();
 		if (idade >= 18 && idade < 45) {
@@ -89,42 +129,6 @@ public class AlistamentoMilitar {
 		int idade = 2023 - Integer.parseInt(getDadosPessoa1()[1]);
 		double multa = (idade - 19) * 5;
 		return multa;
-	}
-
-	public void multa(String multa) {
-		this.dadosPessoa1[8] = multa;
-	}
-
-	public void nome(String nome) {
-		this.dadosPessoa1[0] = nome;
-	}
-
-	public void anoNacimento(String anoNacimento) {
-		this.dadosPessoa1[1] = anoNacimento;
-	}
-
-	public void nomeMae(String nomeMae) {
-		this.dadosPessoa1[2] = nomeMae;
-	}
-
-	public void nomePai(String nomePai) {
-		this.dadosPessoa1[3] = nomePai;
-	}
-
-	public void telefone(String telefone) {
-		this.dadosPessoa1[4] = telefone;
-	}
-
-	public void email(String email) {
-		this.dadosPessoa1[5] = email;
-	}
-
-	public void altura(String altura) {
-		this.dadosPessoa1[6] = altura;
-	}
-
-	public void peso(String peso) {
-		this.dadosPessoa1[7] = peso;
 	}
 
 	public String toString() {
