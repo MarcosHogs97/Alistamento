@@ -16,7 +16,7 @@ public class StartAlistamentoMilitar {
 		if (quantidadeRecruta > 1) {
 			AlistamentoMilitar[] recrutas = new AlistamentoMilitar[quantidadeRecruta];
 			for (int i = 0; i < recrutas.length; i++) {
-				recrutas[i] = new AlistamentoMilitar("", "", "", "", "", "", "", "");
+				recrutas[i] = new AlistamentoMilitar(null, null, null, null, null, null, null, null);
 				recrutas[i].cadastrarRecruta();
 			}
 			String informaçoes = "";
@@ -26,7 +26,7 @@ public class StartAlistamentoMilitar {
 			}
 			JOptionPane.showMessageDialog(null, informaçoes);
 		} else {
-			AlistamentoMilitar recrutas = new AlistamentoMilitar("", "", "", "", "", "", "", "");
+			AlistamentoMilitar recrutas = new AlistamentoMilitar(null, null, null, null, null, null, null,null);
 			recrutas.cadastrarRecruta();
 			JOptionPane.showMessageDialog(null, "Informções do recruta 01\n" + recrutas.toString());
 		}

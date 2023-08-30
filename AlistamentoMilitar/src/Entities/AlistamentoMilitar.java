@@ -1,5 +1,4 @@
 package Entities;
-
 /*
  * @autor
  * Marcos Henrique O. G. da Silva
